@@ -1,70 +1,57 @@
 <?php
 
+if(isset($_POST["page_language"]))
+   $page_language=$_POST["page_language"];
+else
+   $page_language="English";
+
+if(isset($_POST["language"]))
+   $language=$_POST["language"];
+else
+   $language="English";
+
+
+
 require 'lang.inc';
-$basefile=basename($_SERVER['SCRIPT_NAME'],".php");
-$base_basefile_array=explode("_",$basefile);
-$base_basefile=$base_basefile_array[0];
-$language=$base_basefile_array[1];
+//$basefile=basename($_SERVER['SCRIPT_NAME'],".php");
+//$base_basefile_array=explode("_",$basefile);
+//$base_basefile=$base_basefile_array[0];
+//$language=$base_basefile_array[1];
 
 //Ralph debug
 //$basefile='placementtest_english';
 //$base_basefile='placementtest';
 //$language='english';
 
-switch($base_basefile) {
-	case "einstufungstest":
-		$page_language = "DE";
-		break;
-	case "placementtest":
-		$page_language = "EN";
-}
+//switch($base_basefile) {
+//	case "einstufungstest":
+//		$page_language = "DE";
+//		break;
+//case "placementtest":
+//		$page_language = "EN";
 //Ralph debug
-print "<pre>";
-print_r($_SERVER);
-print "</pre>";
-echo "basefile=".$basefile."<br>";
-echo "base_basefile=".$base_basefile."<br>";
-echo "language=".$language."<br>";
-echo "page_language=".$page_language."<br>";
-echo "<br><br>";
 
-switch($language) {
-	case "english":
-	case "englisch":
-		$language = "english";
-		break;
-	case "business":
-		$language = "english";
-		$target_lang_type = "Business";
-		break;
-	case "deutsch":
-	case "german":
-		$language = "deutsch";
-		break;
-	case "italian":
-	case "italienisch":
-		$language = "italian";
-		break;
-	case "french":
-	case "franzoesisch":
-		$language = "french";
-		break;
-	case "spanish":
-	case "spanisch":
-		$language = "spanish";
+if( $language="business english"){
+	$language = "english";
+	$target_lang_type = "business";
 }
-//echo $language;
 
 $target_lang = $lang[$language][$page_language];
 //echo $target_lang."<br>";
 
 //echo $target_lang_type."<br>";
 //echo $target_lang."<br>";
+//
+echo "language= ".$language."<br>";
+echo "page language= ".$page_language."<br>";
 	
 
 include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
-include $basefile.".inc";
+if ($target_lang_type = "")
+	include $target_lang_type."_".$language.".inc";
+else
+	include $language.".inc";
 $num_questions=count($q);
 
 //Ralph debug

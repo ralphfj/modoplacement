@@ -1,0 +1,14 @@
+runtime: php73
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+- url: /images
+  static_dir: images
+- url: /modolingo\.css
+  static_files: modolingo\.css
+  upload: modolingo\.css
+- url: /validate\.js
+  static_files: /validate\.js
+  upload: /validate\.js
