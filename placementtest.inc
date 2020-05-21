@@ -1,63 +1,13 @@
 <?php
 
-if(isset($_POST["page_language"]))
-   $page_language=$_POST["page_language"];
-else
-   $page_language="English";
+//require 'lang.inc';
 
-if(isset($_POST["language"]))
-   $language=$_POST["language"];
-else
-   $language="English";
-
-
-
-require 'lang.inc';
-//$basefile=basename($_SERVER['SCRIPT_NAME'],".php");
-//$base_basefile_array=explode("_",$basefile);
-//$base_basefile=$base_basefile_array[0];
-//$language=$base_basefile_array[1];
-
-//Ralph debug
-//$basefile='placementtest_english';
-//$base_basefile='placementtest';
-//$language='english';
-
-//switch($base_basefile) {
-//	case "einstufungstest":
-//		$page_language = "DE";
-//		break;
-//case "placementtest":
-//		$page_language = "EN";
-//Ralph debug
-
-if( $language="business english"){
-	$language = "english";
-	$target_lang_type = "business";
-}
-
-$target_lang = $lang[$language][$page_language];
-//echo $target_lang."<br>";
-
-//echo $target_lang_type."<br>";
-//echo $target_lang."<br>";
-//
-echo "language= ".$language."<br>";
-echo "page language= ".$page_language."<br>";
-	
+//$target_lang = $lang[$language][$page_language];
 
 include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
-if ($target_lang_type = "")
-	include $target_lang_type."_".$language.".inc";
-else
-	include $language.".inc";
+include $testdata;
 $num_questions=count($q);
-
-//Ralph debug
-echo "num_questions= ".$num_questions."<br>";
-echo "language_lower= ".$language_lower."<br>";
-echo "include file ".$basefile.".inc";
 
 echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -71,12 +21,9 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 
 echo'
 <body>
-<form name="placementtest" action="'.$base_basefile.'.process.php" method="post" onsubmit="return checkWholeForm(this);">
-<input type="hidden" name="basefile" value="'.$basefile.'" />
+<form name="placementtest" action="'.'placementtest.process.php" method="post" onsubmit="return checkWholeForm(this);">
 <input type="hidden" name="language" value="'.$language.'" />
 <input type="hidden" name="title"    value="'.$title_head5.'" />
-<input type="hidden" name="language_upper" value="'.$language_upper.'" />
-<input type="hidden" name="language_lower" value="'.$language_lower.'" />
 <input type="hidden" name="page_language" value="'.$page_language.'" />
 <input type="hidden" name="language" value="'.$language.'" />
 <table width="800" align="center" frame="void" rules="none" border="0" cellpadding="0" cellspacing="20" class="rahmen">
