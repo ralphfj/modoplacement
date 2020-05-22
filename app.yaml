@@ -12,5 +12,3 @@ handlers:
 - url: /validate\.js
   static_files: /validate\.js
   upload: /validate\.js
-- url: /placementtest_english.php
-  script: auto
