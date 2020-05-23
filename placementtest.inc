@@ -15,8 +15,8 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Sprache,Sprachschule,Schule,International,Language, Center, Munich, M&uuml;nchen,School, Training, Communicative Method" />
 <title>MODOLINGO '.$title_head0.'</title>
-<link href="modolingo.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript" src="validate.js"></script>
+<link href="/modolingo.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript" src="/validate.js"></script>
 </head>';
 
 echo'
@@ -31,8 +31,8 @@ echo'
     <td width="800">
     <table width="800" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td width="199"><img src="images/intro/Bilder/logo.jpg" width="199" height="94" alt="modologo" /></td>
-        <td width="609"><img src="images/letstalk.gif" width="609" height="94" alt="letstalk" /></td>
+        <td width="199"><img src="/images/intro/Bilder/logo.jpg" width="199" height="94" alt="modologo" /></td>
+        <td width="609"><img src="/images/letstalk.gif" width="609" height="94" alt="letstalk" /></td>
       </tr>
     </table>
     </td>
