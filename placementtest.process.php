@@ -83,7 +83,6 @@ if(isset($_POST["nichtmoeglichetermine"]))
    $nichtmoeglichetermine=$_POST["nichtmoeglichetermine"];
 else
    $nichtmoeglichetermine="";
-$basefile=$_POST["basefile"];
 if(isset($_POST["beruf"]))
    $beruf=$_POST["beruf"];
 else
@@ -112,8 +111,8 @@ if(isset($_POST["selbsteinschaetzung"]))
    $selbsteinschaetzung=$_POST["selbsteinschaetzung"];
 else
    $selbsteinschaetzung="";
-include $basefile.".inc";
-include "lang.inc";
+include $language.".inc";
+//include "lang.inc";
 include "parameters.inc";
 //include "selbst.inc";
 include "selbst".$page_language.".inc";
