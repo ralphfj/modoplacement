@@ -36,6 +36,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/einstufungstest_spanisch.php':
         require 'einstufungstest_spanisch.php';
 	break;
+    case '/placementtest.process.php':
+        require 'placementtest.process.php';
+	break;
 
     default:
         http_response_code(404);

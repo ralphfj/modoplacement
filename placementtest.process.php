@@ -27,8 +27,9 @@ echo'
   </tr>
   <tr>';
 
-require_once ('Mail.php');
-require_once "Spreadsheet/Excel/Writer.php";
+require_once __DIR__ . '/vendor/autoload.php';
+//require_once ('vendor/pear/mail/Mail.php');
+//require_once "vendor/pear/spreadsheet_excel_writer/Spreadsheet/Excel/Writer.php";
 
 function winchar($text) {
 	return iconv("UTF-8","WINDOWS-1252",$text);
@@ -305,12 +306,12 @@ $msg .= "--".$mime_boundary."--\n\n";
 
 $subject='Etest: '.$firma.' - '.$name.', '.$vorname;
 
-$archivepath='/var/tmp/';
-$filename=$archivepath.date('YmdHis').'_etest_'.$firma.'_'.$name.'_'.$vorname.'.msg';
-$archivemsg="To: ".$to."\n";
-$archivemsg.=$headers."\n";
-$archivemsg.=$msg;
-file_put_contents($filename, $archivemsg);
+//$archivepath='/var/tmp/';
+//$filename=$archivepath.date('YmdHis').'_etest_'.$firma.'_'.$name.'_'.$vorname.'.msg';
+//$archivemsg="To: ".$to."\n";
+//$archivemsg.=$headers."\n";
+//$archivemsg.=$msg;
+//file_put_contents($filename, $archivemsg);
 
 if (mail($to, $subject, $msg, $headers)) {
 echo("<td>Thank you very much for your time. Your test has been sent to MODOLINGO.</td></tr>");
