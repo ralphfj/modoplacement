@@ -46,6 +46,16 @@ if(isset($_POST["language"]))
 else
    $language="";
 
+if(isset($_POST["target_lang"]))
+   $target_lang=$_POST["target_lang"];
+else
+   $target_lang="";
+
+if(isset($_POST["target_lang_type"]))
+   $target_lang=$_POST["target_lang_type"];
+else
+   $target_lang="";
+
 if(isset($_POST["firma"]))
    $firma=$_POST["firma"];
 else

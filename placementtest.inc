@@ -26,6 +26,8 @@ echo'
 <input type="hidden" name="title"    value="'.$title_head5.'" />
 <input type="hidden" name="page_language" value="'.$page_language.'" />
 <input type="hidden" name="language" value="'.$language.'" />
+<input type="hidden" name="target_lang" value="'.$target_lang.'" />
+<input type="hidden" name="target_lang_type" value="'.$target_lang_type.'" />
 <table width="800" align="center" frame="void" rules="none" border="0" cellpadding="0" cellspacing="20" class="rahmen">
   <tr>
     <td width="800">
