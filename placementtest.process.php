@@ -31,6 +31,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 //require_once ('vendor/pear/mail/Mail.php');
 //require_once "vendor/pear/spreadsheet_excel_writer/Spreadsheet/Excel/Writer.php";
 
+// Swiftmail - Create the Transport
+$transport = (new Swift_SmtpTransport('smtp-relay.gmail.com', 587))
+  ->setUsername('ralph.jones@modolingo.de')
+  ->setPassword('tssuralbagrooxiu')
+;
+
+// Create the Mailer using your created Transport
+$mailer = new Swift_Mailer($transport);
+
+
 function winchar($text) {
 	return iconv("UTF-8","WINDOWS-1252",$text);
 }
@@ -211,7 +221,7 @@ $selbstlevel[6]="C2";
 
 //Generate spreadsheet
  $tmpfile=tempnam("/tmp","placement");
-  // Create an instance, passing the filename to create
+ // Create an instance, passing the filename to create
  $xls = new Spreadsheet_Excel_Writer($tmpfile);
 
  $format_header_bold =& $xls->addFormat();
@@ -270,65 +280,35 @@ $sheet->write(6, 10, winchar($telbus));
 $sheet->write(6, 11, winchar($telmob));
 $sheet->write(6, 12, winchar($beruf));
 
-  // Finish the spreadsheet, dumping it to the browser
+  // Finish the spreadsheet, (dumping it to the browser, if no file given)
  $xls->close(); 
-
-
-//Generate mime email
-$mime_boundary=md5(time());
-
-$fromname = "Modotest";
-$fromaddress = "etests@modolingo.de";
-$headers = "From: ".$fromname."<".$fromaddress.">\n";
-$headers .= "Reply-To: ".$fromname."<".$fromaddress.">\n";
-$headers .= "Return-Path: ".$fromname."<".$fromaddress.">\n";
-$headers .= "Message-ID: <".time()."-".$fromaddress.">\n";
-$headers .= "X-Mailer: PHP v".phpversion()."\n";
-
-$headers .= "MIME-Version: 1.0\n";
-$headers .= "Content-Type: multipart/mixed; boundary=\"".$mime_boundary."\"\n";
-$headers .= "Content-Disposition: inline\n";
-$headers .= "Content-Transfer-Encoding: 8bit\n\n";
-
-
-$msg = "--".$mime_boundary."\n";
-$msg .= "Content-Type: text/plain; charset=utf-8\n";
-$msg .= "Content-Disposition: inline\n";
-$msg .= "Content-Transfer-Encoding: 8bit\n\n";
-
-$msg .= $textbody."\n\n";
-
-$msg .= "--".$mime_boundary."\n";
-$msg .= "Content-Type: application/vnd.ms-excel\n";
 $newfilename=$target_lang.'_Test_'.$name.'_'.$vorname.'.xls';
-$msg .= "Content-Disposition: attachment; filename=".$newfilename."\n";
-$msg .= "Content-Transfer-Encoding: base64\n\n";
+ 
+//create message with Swift_Mailer
+$message = (new Swift_Message())
 
-$filehandle=fopen($tmpfile,"rb");
-$filecontents=fread($filehandle,filesize($tmpfile));
-$filecontents=chunk_split(base64_encode($filecontents));
-//$file_type=filetype($filecontents);
+  // Give the message a subject
+  ->setSubject('Etest: '.$firma.' - '.$name.', '.$vorname;)
 
-$msg .= $filecontents."\n\n";
+  // Set the From address with an associative array
+  ->setFrom(['etests@modolingo.de' => 'Modotest'])
 
-$msg .= "--".$mime_boundary."--\n\n";
+  // Set the To addresses with an associative array (setTo/setCc/setBcc)
+  ->setTo([$to])
 
-$subject='Etest: '.$firma.' - '.$name.', '.$vorname;
+  // Give it a body
+  ->setBody($textbody)
 
-//$archivepath='/var/tmp/';
-//$filename=$archivepath.date('YmdHis').'_etest_'.$firma.'_'.$name.'_'.$vorname.'.msg';
-//$archivemsg="To: ".$to."\n";
-//$archivemsg.=$headers."\n";
-//$archivemsg.=$msg;
-//file_put_contents($filename, $archivemsg);
+  // And optionally an alternative body
+  // ->addPart('<q>Here is the message itself</q>', 'text/html')
 
-if (mail($to, $subject, $msg, $headers)) {
-echo("<td>Thank you very much for your time. Your test has been sent to MODOLINGO.</td></tr>");
-echo("<tr><td>Vielen Dank f&uuml;r Ihre Zeit. Ihr Test wurde an MODOLINGO geschickt.</td>");
- } else {
-  echo("<td>Unfortunately the message could not be successfully delivered to Modolingo. Please contact MODOLINGO: Phone.: 089 2101982-0 or Email: info@modolingo.de. Thank you.</td></tr>");
-  echo("<tr><td>Leider konnte ihre Nachricht nicht an Modolingo gesendet werden. Bitte mit MODOLINGO in Verbindung setzten: Tel.: 089 2101982-0 or Email: info@modolingo.de. Danke sch&ouml;n.</td>");
- }
+  // Optionally add any attachments
+  ->attach(Swift_Attachment::fromPath($tmpfile)->setFilename($newfilename))
+  ;
+
+//debug - echo contents of message to screen
+echo $message->toString(); 
+
 unlink($tmpfile);
  ?>
 </tr>
