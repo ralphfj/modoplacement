@@ -5,12 +5,11 @@ $title_head1 = "Pers&ouml;nliche Daten";
 $title_head2 = "Verfügbarkeiten";
 $title_head3 = "Bedarfsanalyse";
 $title_head4 = "Selbsteinschätzung";
-$title_head5 = "Einstufungstest für ".$target_lang_type." ".$target_lang;
 if (isset($target_lang_type)) {
-  $title_head5 = "Placement Test for ".$target_lang_type." ".$target_lang;
+  $title_head5 = "Winstufungstest für ".$target_lang_type." ".$target_lang;
 }
 else {
-  $title_head5 = "Placement Test for ".$target_lang;
+  $title_head5 = "Einstufungstest für ".$target_lang;
 }
 
 
