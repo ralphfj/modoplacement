@@ -4,7 +4,13 @@ $title_head1 = "Personal Data";
 $title_head2 = "Availability";
 $title_head3 = "Needs Analysis";
 $title_head4 = "Self Evaluation";
-$title_head5 = "Placement Test for ".$target_lang_type." ".$target_lang;
+if (isset($target_lang_type)) {
+  $title_head5 = "Placement Test for ".$target_lang_type." ".$target_lang;
+}
+else {
+  $title_head5 = "Placement Test for ".$target_lang;
+}
+
 
 $title_firm = "Company Name";
 $title_surname = "Family Name";

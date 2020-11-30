@@ -6,8 +6,13 @@ $title_head2 = "Verfügbarkeiten";
 $title_head3 = "Bedarfsanalyse";
 $title_head4 = "Selbsteinschätzung";
 $title_head5 = "Einstufungstest für ".$target_lang_type." ".$target_lang;
-//echo "target_lang=".$target_lang."<br>";
-//echo "title_head5=".$title_head5."<br>";
+if (isset($target_lang_type)) {
+  $title_head5 = "Placement Test for ".$target_lang_type." ".$target_lang;
+}
+else {
+  $title_head5 = "Placement Test for ".$target_lang;
+}
+
 
 $title_firm = "Firma";
 $title_surname = "Name";
