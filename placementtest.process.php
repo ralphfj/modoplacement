@@ -288,7 +288,7 @@ $newfilename=$target_lang.'_Test_'.$name.'_'.$vorname.'.xls';
 $message = (new Swift_Message())
 
   // Give the message a subject
-  ->setSubject('Etest: '.$firma.' - '.$name.', '.$vorname;)
+  ->setSubject('Etest: '.$firma.' - '.$name.', '.$vorname)
 
   // Set the From address with an associative array
   ->setFrom(['etests@modolingo.de' => 'Modotest'])
