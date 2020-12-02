@@ -46,6 +46,11 @@ function winchar($text) {
 }
 
 
+if(isset($_POST["basefile"]))
+   $basefile=$_POST["basefile"];
+else
+   $basefile="";
+
 if(isset($_POST["page_language"]))
    $page_language=$_POST["page_language"];
 else

@@ -9,6 +9,8 @@ include "titles".$page_language.".inc";
 include $testdata;
 $num_questions=count($q);
 
+$basefile=basename($_SERVER['SCRIPT_NAME'],".php");
+
 echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,6 +24,7 @@ echo'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.
 echo'
 <body>
 <form name="placementtest" action="'.'placementtest.process.php" method="post" onsubmit="return checkWholeForm(this);">
+<input type="hidden" name="basefile" value="'.$basefile.'" />
 <input type="hidden" name="language" value="'.$language.'" />
 <input type="hidden" name="title"    value="'.$title_head5.'" />
 <input type="hidden" name="page_language" value="'.$page_language.'" />
