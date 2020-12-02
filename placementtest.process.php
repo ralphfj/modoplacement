@@ -314,9 +314,18 @@ $message = (new Swift_Message())
 //debug - echo contents of message to screen
 //echo $message->toString(); 
 
-$result = $mailer->send($message);
+$numsent = $mailer->send($message);
+if ($numsent))
+{
+  echo("<td>Thank you very much for your time. Your test has been sent to MODOLINGO.</td></tr>");
+  echo("<tr><td>Vielen Dank f&uuml;r Ihre Zeit. Ihr Test wurde an MODOLINGO geschickt.</td>");
+}
+else
+{
+  echo("<td>Unfortunately the message could not be successfully delivered to Modolingo. Please contact MODOLINGO: Phone.: 089 2101982-0 or Email: info@modolingo.de. Thank you.</td></tr>");
+  echo("<tr><td>Leider konnte ihre Nachricht nicht an Modolingo gesendet werden. Bitte mit MODOLINGO in Verbindung setzten: Tel.: 089 2101982-0 or Email: info@modolingo.de. Danke sch&ouml;n.</td>");
+}
 
-echo $result;
 
 unlink($tmpfile);
  ?>
