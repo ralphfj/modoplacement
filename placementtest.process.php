@@ -315,7 +315,7 @@ $message = (new Swift_Message())
 //echo $message->toString(); 
 
 $numsent = $mailer->send($message);
-if ($numsent))
+if ($numsent)
 {
   echo("<td>Thank you very much for your time. Your test has been sent to MODOLINGO.</td></tr>");
   echo("<tr><td>Vielen Dank f&uuml;r Ihre Zeit. Ihr Test wurde an MODOLINGO geschickt.</td>");
