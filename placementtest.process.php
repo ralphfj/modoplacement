@@ -32,9 +32,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 //require_once "vendor/pear/spreadsheet_excel_writer/Spreadsheet/Excel/Writer.php";
 
 // Swiftmail - Create the Transport
-$transport = (new Swift_SmtpTransport('smtp-relay.gmail.com', 587))
-  ->setUsername('ralph.jones@modolingo.de')
-  ->setPassword('tssuralbagrooxiu')
+$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'tls'))
+  ->setUsername('ralph.f.jones@gmail.com')
+  ->setPassword('gjprkgzbwoaphkgc')
 ;
 
 // Create the Mailer using your created Transport
@@ -137,7 +137,7 @@ include "parameters.inc";
 //include "selbst.inc";
 include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
-$target_lang = $lang[$language]["DE"];
+//$target_lang = $lang[$language]["DE"];
 
 
 $numcorrect=0;
@@ -307,7 +307,11 @@ $message = (new Swift_Message())
   ;
 
 //debug - echo contents of message to screen
-echo $message->toString(); 
+//echo $message->toString(); 
+
+$result = $mailer->send($message);
+
+echo $result;
 
 unlink($tmpfile);
  ?>
