@@ -62,9 +62,9 @@ else
    $target_lang="";
 
 if(isset($_POST["target_lang_type"]))
-   $target_lang=$_POST["target_lang_type"];
+   $target_lang_type=$_POST["target_lang_type"];
 else
-   $target_lang="";
+   $target_lang_type="";
 
 if(isset($_POST["firma"]))
    $firma=$_POST["firma"];
