@@ -14,3 +14,6 @@ handlers:
   upload: /validate\.js
 - url: .*
   script: auto
+
+env_variables:
+  STORAGE_BUCKET: "macro-thinker-261715.appspot.com"
