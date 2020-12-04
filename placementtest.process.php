@@ -325,7 +325,7 @@ else
 }
 
 //Write file to storage
-use Google\Cloud\Storage\StorageClient;
+use Google\Cloud-Storage\StorageClient;
 $bucketName=getenv('STORAGE_BUCKET');
 $storage = new StorageClient();
 $bucket = $storage->bucket($bucketName);
