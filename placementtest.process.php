@@ -28,8 +28,6 @@ echo'
   <tr>';
 
 require_once __DIR__ . '/vendor/autoload.php';
-//require_once ('vendor/pear/mail/Mail.php');
-//require_once "vendor/pear/spreadsheet_excel_writer/Spreadsheet/Excel/Writer.php";
 
 // Swiftmail - Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'tls'))
@@ -325,6 +323,15 @@ else
   echo("<td>Unfortunately the message could not be successfully delivered to Modolingo. Please contact MODOLINGO: Phone.: 089 2101982-0 or Email: info@modolingo.de. Thank you.</td></tr>");
   echo("<tr><td>Leider konnte ihre Nachricht nicht an Modolingo gesendet werden. Bitte mit MODOLINGO in Verbindung setzten: Tel.: 089 2101982-0 or Email: info@modolingo.de. Danke sch&ouml;n.</td>");
 }
+
+//Write file to storage
+use Google\Cloud\Storage\StorageClient;
+$bucketName=getenv('STORAGE_BUCKET');
+$storage = new StorageClient();
+$bucket = $storage->bucket($bucketName);
+$object = $bucket->upload($tmpfile, ['name' => $newfilename]);
+
+
 
 
 unlink($tmpfile);
