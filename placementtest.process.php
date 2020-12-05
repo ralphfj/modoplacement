@@ -28,6 +28,7 @@ echo'
   <tr>';
 
 require_once __DIR__ . '/vendor/autoload.php';
+use Google\Cloud\Storage\StorageClient;
 
 // Swiftmail - Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'tls'))
@@ -325,14 +326,11 @@ else
 }
 
 //Write file to storage
-use Google\Cloud-Storage\StorageClient;
 $bucketName=getenv('STORAGE_BUCKET');
+
 $storage = new StorageClient();
 $bucket = $storage->bucket($bucketName);
 $object = $bucket->upload($tmpfile, ['name' => $newfilename]);
-
-
-
 
 unlink($tmpfile);
  ?>
