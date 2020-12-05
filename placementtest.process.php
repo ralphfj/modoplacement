@@ -285,8 +285,12 @@ $sheet->write(6, 11, winchar($telmob));
 $sheet->write(6, 12, winchar($beruf));
 
   // Finish the spreadsheet, (dumping it to the browser, if no file given)
- $xls->close(); 
-$newfilename=$target_lang.'_Test_'.$name.'_'.$vorname.'.xls';
+$xls->close(); 
+
+$testdate=date('Y-m-d_H:i:s');
+$testname=$testdate.'_'.$target_lang.'_'.$name.'_'.$vorname;
+$newfilename=$testname.'.xls';
+$textbodyfilename=$testname.'.txt';
  
 //create message with Swift_Mailer
 $message = (new Swift_Message())
@@ -331,6 +335,7 @@ $bucketName=getenv('STORAGE_BUCKET');
 $storage = new StorageClient();
 $bucket = $storage->bucket($bucketName);
 $object = $bucket->upload($tmpfile, ['name' => $newfilename]);
+$object = $bucket->upload($textbody, ['name' => $textbodyfilename]);
 
 unlink($tmpfile);
  ?>
