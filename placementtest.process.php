@@ -144,6 +144,9 @@ include "parameters.inc";
 include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
 //$target_lang = $lang[$language]["DE"];
+if (isset($target_lang_type)) {
+  $target_lang = $target_lang_type." ".$target_lang;
+}
 
 
 $numcorrect=0;
