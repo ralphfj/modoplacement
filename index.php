@@ -28,7 +28,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         require 'einstufungstest_englisch.php';
 	break;
     case '/einstufungstest_deutsch.php':
-        require 'einstufungstest_englisch.php';
+        require 'einstufungstest_deutsch.php';
 	break;
     case '/einstufungstest_franzoesisch.php':
         require 'einstufungstest_franzoesisch.php';
