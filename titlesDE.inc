@@ -6,7 +6,7 @@ $title_head2 = "Verfügbarkeiten";
 $title_head3 = "Bedarfsanalyse";
 $title_head4 = "Selbsteinschätzung";
 if (isset($target_lang_type)) {
-  $title_head5 = "Winstufungstest für ".$target_lang_type." ".$target_lang;
+  $title_head5 = "Einstufungstest für ".$target_lang_type." ".$target_lang;
 }
 else {
   $title_head5 = "Einstufungstest für ".$target_lang;
