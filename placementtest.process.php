@@ -30,6 +30,8 @@ echo'
 require_once __DIR__ . '/vendor/autoload.php';
 use Google\Cloud\Storage\StorageClient;
 
+date_default_timezone_set("Europe/Berlin");
+
 // Swiftmail - Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587,'tls'))
   ->setUsername('ralph.f.jones@gmail.com')
