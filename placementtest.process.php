@@ -145,6 +145,8 @@ include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
 //$target_lang = $lang[$language]["DE"];
 
+$target_lang_compound_space = implode(" ",array_filter([$target_lang_type,$target_lang]));
+$target_lang_compound_hyphen = implode("_",array_filter([$target_lang_type,$target_lang]));
 
 $numcorrect=0;
 $numquestions=sizeof($a);
@@ -245,7 +247,7 @@ $selbstlevel[6]="C2";
  $format_wrap->setTextWrap();
 
  // Add a worksheet to the file, returning an object to add data to
- $sheet = $xls->addWorksheet(substr($target_lang.' - '.winchar($name).', '.winchar($vorname),0,31));
+ $sheet = $xls->addWorksheet(substr($target_lang_compound_space.' - '.winchar($name).', '.winchar($vorname),0,31));
 
 $sheet->setColumn(0,4,20);
 $sheet->write(0, 0, "Firma:", $format_header_bold);
@@ -255,7 +257,7 @@ $sheet->write(1, 1, winchar($name), $format_header);
 $sheet->write(2, 0, "Vorname:", $format_header_bold);
 $sheet->write(2, 1, winchar($vorname), $format_header);
 $sheet->write(3, 0, "Sprache:", $format_header_bold);
-$sheet->write(3, 1, $target_lang, $format_header);
+$sheet->write(3, 1, $target_lang_compound_space, $format_header);
 $sheet->write(5, 0, "Name", $format_title);
 $sheet->write(5, 1, "Vorname", $format_title);
 $sheet->write(5, 2, "Position", $format_title);
@@ -290,7 +292,7 @@ $sheet->write(6, 12, winchar($beruf));
 $xls->close(); 
 
 $testdate=date('Y-m-d_H:i:s');
-$testname=$testdate.'_'.$target_lang.'_'.$name.'_'.$vorname;
+$testname=$testdate.'_'.$target_lang_compound_hyphen.'_'.$firma.'_'.$name.'_'.$vorname;
 $newfilename=$testname.'.xls';
 $textbodyfilename=$testname.'.txt';
  
