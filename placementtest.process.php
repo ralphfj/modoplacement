@@ -338,7 +338,7 @@ $storage = new StorageClient();
 $file = fopen($tmpfile, 'r');
 $bucket = $storage->bucket($bucketName);
 $object = $bucket->upload($file, ['name' => $newfilename]);
-//$object = $bucket->upload($textbody, ['name' => $textbodyfilename]);
+$object = $bucket->upload($textbody, ['name' => $textbodyfilename]);
 
 unlink($tmpfile);
  ?>
