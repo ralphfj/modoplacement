@@ -230,22 +230,22 @@ $selbstlevel[6]="C2";
  // Create an instance, passing the filename to create
  $xls = new Spreadsheet_Excel_Writer($tmpfile);
 
- $format_header_bold =& $xls->addFormat();
+ $format_header_bold = $xls->addFormat();
  $format_header_bold->setBold();
  $format_header_bold->setSize('13');
 
- $format_header =& $xls->addFormat();
+ $format_header = $xls->addFormat();
  $format_header->setSize('13');
 
- $format_title =& $xls->addFormat();
+ $format_title = $xls->addFormat();
  $format_title->setBold();
  $format_title->setColor('black');
  $format_title->setFgColor('yellow');
- $format_wrap =& $xls->addFormat();
+ $format_wrap = $xls->addFormat();
  $format_wrap->setTextWrap();
 
  // Add a worksheet to the file, returning an object to add data to
- $sheet =& $xls->addWorksheet(substr($target_lang.' - '.winchar($name).', '.winchar($vorname),0,31));
+ $sheet = $xls->addWorksheet(substr($target_lang.' - '.winchar($name).', '.winchar($vorname),0,31));
 
 $sheet->setColumn(0,4,20);
 $sheet->write(0, 0, "Firma:", $format_header_bold);
