@@ -6,6 +6,7 @@ $language_lower="english";
 $language_upper="English";
 */
 $question_word="Question";
+$target_langDE="Englisch";
 
 
 $q[1][1]="A: Is this the right place for museum tickets?";

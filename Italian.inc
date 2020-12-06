@@ -3,6 +3,7 @@ $responses=array(1=>'a','b','c','d');
 
 $language_lower="italienisch";
 $language_upper="Italienisch";
+$target_langDE="Italienisch";
 $title="Einstufungstest f&uuml;r Italienisch";
 $question_word="Domanda";
 

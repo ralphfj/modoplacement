@@ -3,6 +3,7 @@ $responses=array(1=>'a','b','c','d');
 
 $language_lower="französisch";
 $language_upper="Französisch";
+$target_langDE="Französisch";
 $title="Einstufungstest f&uuml;r Französisch";
 $question_word="Question";
 

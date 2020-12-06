@@ -3,6 +3,7 @@ $responses=array(1=>'a','b','c','d');
 
 $language_lower="spanisch";
 $language_upper="Spanisch";
+$target_langDE="Spanisch";
 $title="Einstufungstest f&uuml;r Spanisch";
 $question_word="Cuestión";
 
