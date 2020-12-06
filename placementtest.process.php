@@ -144,9 +144,6 @@ include "parameters.inc";
 include "selbst".$page_language.".inc";
 include "titles".$page_language.".inc";
 //$target_lang = $lang[$language]["DE"];
-if (isset($target_lang_type)) {
-  $target_lang = $target_lang_type." ".$target_lang;
-}
 
 
 $numcorrect=0;
@@ -338,9 +335,10 @@ else
 $bucketName=getenv('STORAGE_BUCKET');
 
 $storage = new StorageClient();
+$file = fopen($tmpfile, 'r');
 $bucket = $storage->bucket($bucketName);
-$object = $bucket->upload($tmpfile, ['name' => $newfilename]);
-$object = $bucket->upload($textbody, ['name' => $textbodyfilename]);
+$object = $bucket->upload($file, ['name' => $newfilename]);
+//$object = $bucket->upload($textbody, ['name' => $textbodyfilename]);
 
 unlink($tmpfile);
  ?>
