@@ -7,10 +7,7 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
         require 'placementtest_english.php';
         break;
     case '/placementtest_business_english.php':
-        require 'placementtest_english.php';
-        break;
-    case '/placementtest_business_english.php':
-        require 'placementtest_english.php';
+        require 'placementtest_business_english.php';
         break;
     case '/placementtest_french.php':
         require 'placementtest_french.php';
