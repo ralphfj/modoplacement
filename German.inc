@@ -119,7 +119,7 @@ $o[14][3]="Opa ... Oma";
 $o[14][4]="Oma ... Opa";
 
 $q[15][1]="A: Gehen wir morgen ins Kino?";
-$q[15][2]="B: Nein, dass geht leider nicht! Ich _______ lernen.";
+$q[15][2]="B: Nein, das geht leider nicht! Ich _______ lernen.";
 
 $o[15][1]="kann";
 $o[15][2]="darf";
@@ -233,13 +233,13 @@ $o[29][2]="gekocht ... hatten";
 $o[29][3]="kochen ... hatten";
 $o[29][4]="kochen ... haben";
 
-$q[30][1]="A: Ich finde die Strände in Italien zu voll?";
+$q[30][1]="A: Ich finde die Strände in Italien zu voll.";
 $q[30][2]="B: Ich auch. ___________fahre ich immer wieder gerne hin.";
 
-$o[30][1]="deshalb";
-$o[30][2]="trotzdem";
-$o[30][3]="dafür";
-$o[30][4]="deswegen";
+$o[30][1]="Deshalb";
+$o[30][2]="Trotzdem";
+$o[30][3]="Dafür";
+$o[30][4]="Deswegen";
 
 $q[31][1]="A: Was ____ du gerne kaufen?";
 $q[31][2]="B: Ich _____mir gerne ein Kleid kaufen.";
@@ -390,8 +390,8 @@ $o[49][2]="seit";
 $o[49][3]="seitdem";
 $o[49][4]="während";
 
-$q[50][1]="A: Die ersten Teilprüfungen waren ____ leicht";
-$q[50][2]="B: Die nächten Examen werden garantiert schwieriger.";
+$q[50][1]="A: Die ersten Teilprüfungen waren ____ leicht.";
+$q[50][2]="B: Die nächsten Examen werden garantiert schwieriger.";
 
 $o[50][1]="gar";
 $o[50][2]="halbwegs";
