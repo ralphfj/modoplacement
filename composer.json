@@ -3,7 +3,7 @@
         "pear/mail_mime": "^1.10",
         "pear/mail": "^1.4",
         "pear/ole": "v1.0.0RC5",
-        "pear/spreadsheet_excel_writer": "^0.9.4",
+        "pear/spreadsheet_excel_writer": "^0.9.11",
 	"swiftmailer/swiftmailer": "^6.0",
 	"google/cloud-storage": "^1.23"
     }
