@@ -6,6 +6,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
     case '/placementtest_english.php':
         require 'placementtest_english.php';
         break;
+    case '/placementtest_english_noavail.php':
+        require 'placementtest_english_noavail.php';
+        break;
     case '/placementtest_business_english.php':
         require 'placementtest_business_english.php';
         break;
@@ -26,6 +29,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
 	break;
     case '/einstufungstest_englisch.php':
         require 'einstufungstest_englisch.php';
+	break;
+    case '/einstufungstest_englisch_noavail.php':
+        require 'einstufungstest_englisch_noavail.php';
 	break;
     case '/einstufungstest_deutsch.php':
         require 'einstufungstest_deutsch.php';
