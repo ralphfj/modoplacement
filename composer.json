@@ -2,7 +2,7 @@
     "require": {
         "pear/mail_mime": "^1.10",
         "pear/mail": "^1.4",
-        "pear/ole": "v1.0.0RC5",
+        "pear/ole": "dev-master",
         "pear/spreadsheet_excel_writer": "dev-master",
 	"swiftmailer/swiftmailer": "^6.0",
 	"google/cloud-storage": "^1.23"
