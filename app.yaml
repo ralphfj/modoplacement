@@ -1,4 +1,6 @@
 runtime: php84
+env_variables:
+  COMPOSER_ARGS: "--ignore-platform-reqs"
 
 handlers:
 - url: /favicon\.ico
