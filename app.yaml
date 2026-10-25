@@ -1,6 +1,4 @@
 runtime: php84
-env_variables:
-  COMPOSER_ARGS: "--ignore-platform-reqs"
 
 handlers:
 - url: /favicon\.ico
@@ -19,3 +17,4 @@ handlers:
 
 env_variables:
   STORAGE_BUCKET: "macro-thinker-261715.appspot.com"
+  COMPOSER_ARGS: "--ignore-platform-reqs"
